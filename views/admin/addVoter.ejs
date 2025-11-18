@@ -1,0 +1,45 @@
+ <!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Admin • Add Voter</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="card" style="grid-template-columns:1fr;">
+        <div class="panel-right">
+          <div class="form">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:700;font-size:18px">Add Voter</div>
+                <div class="small">Create a new voter account</div>
+              </div>
+              <div class="center">
+                <a class="small" href="/admin/voters">Back</a>
+              </div>
+            </div>
+
+            <form action="/admin/add-voter" method="POST" style="margin-top:12px">
+              <label class="small">Full name</label>
+              <input name="name" class="input" required>
+
+              <label class="small">Email</label>
+              <input name="email" class="input" type="email" required>
+
+              <label class="small">Password (temporary)</label>
+              <input name="password" class="input" type="password" value="Voter@123" required>
+
+              <div style="margin-top:12px">
+                <button class="btn" type="submit">Create voter</button>
+                <a class="btn btn-ghost" href="/admin/voters">Cancel</a>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

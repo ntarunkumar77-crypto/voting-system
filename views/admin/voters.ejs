@@ -1,0 +1,50 @@
+ <!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Admin • Voters</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="card" style="grid-template-columns:1fr;">
+        <div class="panel-right">
+          <div class="form">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:700;font-size:18px">Registered Voters</div>
+                <div class="small">All voters in database</div>
+              </div>
+              <div class="center">
+                <a class="small" href="/admin/dashboard">Back</a>
+              </div>
+            </div>
+
+            <div style="margin-top:12px; overflow:auto">
+              <table class="table">
+                <thead>
+                  <tr><th>Name</th><th>Email</th><th>Has Voted</th></tr>
+                </thead>
+                <tbody>
+                  <% if (voters && voters.length) { %>
+                    <% voters.forEach(v => { %>
+                      <tr>
+                        <td><%= v.name %></td>
+                        <td><%= v.email %></td>
+                        <td><%= v.hasVoted ? 'Yes' : 'No' %></td>
+                      </tr>
+                    <% }) %>
+                  <% } else { %>
+                    <tr><td colspan="3">No voters found</td></tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

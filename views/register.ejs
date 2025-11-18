@@ -1,0 +1,44 @@
+ <!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Register • VoterMgmt</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="card">
+        <div class="panel-left">
+          <a class="brand" href="/">
+            <div class="logo">VM</div>
+            <div>
+              <div class="h1">Create your account</div>
+              <div class="lead">Register as a voter to cast your vote safely</div>
+            </div>
+          </a>
+          <p class="lead">We'll keep your details private — administrators will verify registration.</p>
+        </div>
+
+        <div class="panel-right">
+          <div class="form">
+            <form action="/register" method="POST">
+              <label class="small">Full name</label>
+              <input name="name" class="input" placeholder="Your full name" required>
+
+              <label class="small">Email</label>
+              <input name="email" class="input" type="email" placeholder="you@example.com" required>
+
+              <label class="small">Password</label>
+              <input name="password" class="input" type="password" placeholder="Create a secure password" required>
+
+              <button class="btn" type="submit">Create account</button>
+            </form>
+
+            <div style="margin-top:10px" class="small">Already registered? <a href="/login">Sign in</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

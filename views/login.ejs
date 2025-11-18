@@ -1,0 +1,50 @@
+ <!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Login • VoterMgmt</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="card">
+        <div class="panel-left">
+          <a class="brand" href="/">
+            <div class="logo">VM</div>
+            <div>
+              <div class="h1">Welcome back</div>
+              <div class="lead">Enter your credentials to access the portal</div>
+            </div>
+          </a>
+
+          <p class="lead">Choose role and login. Admins have full access; voters have voting & profile access only.</p>
+        </div>
+
+        <div class="panel-right">
+          <div class="form">
+            <form action="/login" method="POST">
+              <label class="small">Role</label>
+              <select name="role" class="input" required>
+                <option value="voter">Voter</option>
+                <option value="admin">Admin</option>
+              </select>
+
+              <label class="small">Email</label>
+              <input name="email" class="input" type="email" placeholder="you@example.com" required>
+
+              <label class="small">Password</label>
+              <input name="password" class="input" type="password" placeholder="••••••" required>
+
+              <div style="display:flex;gap:12px;margin-top:6px">
+                <button class="btn" type="submit">Sign in</button>
+                <a class="btn btn-ghost" href="/">Cancel</a>
+              </div>
+            </form>
+            <div style="margin-top:10px" class="small">No account? <a href="/register" class="small">Register here</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

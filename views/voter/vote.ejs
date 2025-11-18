@@ -1,0 +1,46 @@
+ <!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Cast Vote • VoterMgmt</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="card" style="grid-template-columns:1fr;">
+        <div class="panel-right">
+          <div class="form">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:700;font-size:18px">Cast Vote</div>
+                <div class="small">Choose one candidate</div>
+              </div>
+              <div class="center">
+                <a class="small" href="/voter/dashboard">Back</a>
+              </div>
+            </div>
+
+            <form action="/voter/vote" method="POST" style="margin-top:12px">
+              <label class="small">Select candidate</label>
+              <select name="candidate" class="input" required>
+                <option value="">-- Select candidate --</option>
+                <option>Candidate A</option>
+                <option>Candidate B</option>
+                <option>Candidate C</option>
+              </select>
+
+              <div style="margin-top:12px">
+                <button class="btn" type="submit">Submit vote</button>
+                <a class="btn btn-ghost" href="/voter/dashboard">Cancel</a>
+              </div>
+            </form>
+
+            <div style="margin-top:12px" class="small">Your ballot is private and recorded securely.</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
