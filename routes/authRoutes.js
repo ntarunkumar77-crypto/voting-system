@@ -43,23 +43,13 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const { email, password, role, name } = req.body;
+  const { name, email, password, voterId } = req.body;
   try {
-    if (role === 'admin') {
-      const existing = await Admin.findOne({ email });
-      if (existing) return res.send('Admin already exists');
-      const hashed = await bcrypt.hash(password, 10);
-      await Admin.create({ email, password: hashed });
-      res.redirect('/login');
-    } else if (role === 'voter') {
-      const existing = await Voter.findOne({ email });
-      if (existing) return res.send('Voter already exists');
-      const hashed = await bcrypt.hash(password, 10);
-      await Voter.create({ name, email, password: hashed });
-      res.redirect('/login');
-    } else {
-      res.send('Invalid role');
-    }
+    const existing = await Voter.findOne({ email });
+    if (existing) return res.send('Voter already exists');
+    const hashed = await bcrypt.hash(password, 10);
+    await Voter.create({ name, email, password: hashed, voterId });
+    res.redirect('/login');
   } catch (error) {
     console.error(error);
     res.send('Server error');
