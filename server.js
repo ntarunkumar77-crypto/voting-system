@@ -27,5 +27,7 @@ app.use("/", authRoutes);    //  ⬅ FIXED
 app.use("/admin", adminRoutes);
 app.use("/voter", voterRoutes);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
+console.log("tarun")
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
