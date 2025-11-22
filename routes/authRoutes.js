@@ -43,12 +43,12 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const { name, email, password, voterId } = req.body;
+  const { name, email, password} = req.body;
   try {
     const existing = await Voter.findOne({ email });
     if (existing) return res.send('Voter already exists');
     const hashed = await bcrypt.hash(password, 10);
-    await Voter.create({ name, email, password: hashed, voterId });
+    await Voter.create({ name, email, password: hashed});
     res.redirect('/login');
   } catch (error) {
     console.error(error);
